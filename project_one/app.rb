@@ -2,7 +2,6 @@
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
-require 'pony'
 
 
 get '/' do
@@ -62,25 +61,6 @@ post '/contacts' do
 		return erb :contacts
 	end
 
-		unless params[:email] == '' || params[:message] == ''
-			Pony.options = {
-			  :subject => "Some Subject",
-			  :body => "This is the body.",
-			  :via => :smtp,
-			  :via_options => {
-			    :address              => 'smtp.gmail.com',
-			    :port                 => '587',
-			    :enable_starttls_auto => true,
-			    :user_name            => 'popovartem505@gmail.com',
-			    :password             => ',pl.[by[jkmw2003',
-			    :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
-			    :domain               => "localhost.localdomain"
-			  }
-			}
-Pony.mail(:to => popovartem505@gmail.com)
-		end
-		  redirect '/'
-
 		@title = "Thank you!"
 		@message = "Привет мы вам в скором времени ответим, #{@email}."
 
@@ -89,9 +69,5 @@ Pony.mail(:to => popovartem505@gmail.com)
 		f.close
 
 	erb :message
-end
-
-post '/thankyou' do
-  
 end
 

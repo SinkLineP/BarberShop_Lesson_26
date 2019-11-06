@@ -20,10 +20,9 @@
 
   <label>Выберите парикмахера:</label>
   <select name="barber" class="custom-select form-control">
-  	<option selected>-=Не Выбрано=-</option>
-  	<option value="Misha">Misha</option>
-  	<option value="Karina">Karina</option>
-  	<option value="Vova">Vova</option>
+  	<option <%= @barber == 'Misha' ? 'selected' : '' %>>Misha</option>
+  	<option <%= @barber == 'Karina' ? 'selected' : '' %>>Karina</option>
+  	<option <%= @barber == 'Vova' ? 'selected' : '' %>>Vova</option>
   </select><br>
 
   <div class="form-group">
