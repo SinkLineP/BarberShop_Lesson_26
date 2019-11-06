@@ -14,3 +14,8 @@ User: артем, Phone: 0508538886, Date and time: 2.09.2019, Barber: Karina, C
 User: hii, Phone: 0508538886, Date and time: 2.09.2019, Barber: -=Не Выбрано=-, Color: #7bd148.
 User: hii, Phone: 0508538886, Date and time: 2.09.2019, Barber: -=Не Выбрано=-, Color: #7bd148.
 User: asas, Phone: sasa, Date and time: sasasa, Barber: Karina, Color: Yellow.
+User: артем, Phone: 0508538886, Date and time: 2.09.2019, Barber: Миша, Color: #a4bdfc.
+User: артем, Phone: 0508538886, Date and time: 2.09.2019, Barber: Миша, Color: #a4bdfc.
+User: артем, Phone: 0508538886, Date and time: 2.09.2019, Barber: Миша, Color: #a4bdfc.
+User: артем, Phone: 0508538886, Date and time: 2.09.2019, Barber: Misha, Color: #5484ed.
+User: youra, Phone: 1234567890, Date and time: 1.12.32, Barber: Misha, Color: #dc2127.

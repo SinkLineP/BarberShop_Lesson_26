@@ -5,8 +5,24 @@ require 'sinatra/reloader'
 require 'sqlite3'
 
 
+def get_db
+	return SQLite3::Database.new 'data.db'
+end
+
+
 configure do 
-	@db = SQLite3::Database.new 'data.db'
+	@db = get_db
+	@db.execute 'CREATE TABLE IF NOT EXISTS
+		"Users"
+		(
+			"id" INTEGER PRIMARY KEY AUTOINCREMENT,
+			"username" TEXT,
+			"phone" TEXT,
+			"datestamp" TEXT,
+			"barber" TEXT,
+			"color" TEXT
+		)'
+	end
 
 get '/' do
 	erb "Hello! my github: <a href=\"https://github.com/SinkLineP/\">SinkLine_P</a>, and my channel: <a href=\"https://www.youtube.com/channel/UCV3V0MWW0d5xx6T4pxjZauQ?view_as=subscriber/\">My YouTube</a>."
@@ -36,6 +52,20 @@ post '/visit' do
 	if @error != ""
 		return erb :visit
 	end
+
+	@db = get_db
+	@db.execute 'insert into 
+		Users
+		(
+			username, 
+			phone, 
+			datestamp, 
+			barber, 
+			color
+		)
+		values ( ?, ?, ?, ?, ?)', [@username, @phone, @datetime, @barber, @color]
+
+
 
 	@title = "Thank you!"
 	@message = "Hello, #{@username} your application has been sent to '#{@datetime}', Barber: #{@barber}, Color: #{@color}."
