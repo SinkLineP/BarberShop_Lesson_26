@@ -21,3 +21,4 @@ User: артем, Phone: 0508538886, Date and time: 2.09.2019, Barber: Misha, Co
 User: youra, Phone: 1234567890, Date and time: 1.12.32, Barber: Misha, Color: #dc2127.
 User: youra, Phone: 1234567890, Date and time: 1.12.32, Barber: Misha, Color: #dc2127.
 User: kira, Phone: 100000000, Date and time: 2019/11/11 19:00, Barber: Misha, Color: #7bd148.
+User: qq, Phone: qqq, Date and time: 2019/11/12 14:44, Barber: Misha, Color: #51b749.

@@ -6,7 +6,9 @@ require 'sqlite3'
 
 
 def get_db
-	return SQLite3::Database.new 'data.db'
+   @db =  SQLite3::Database.new 'data.db'
+   @db.results_as_hash = true
+  return @db
 end
 
 
@@ -105,3 +107,11 @@ post '/contacts' do
 	erb :message
 end
 
+
+get '/showusers' do
+	@db = get_db
+    
+    @results = @db.execute 'SELECT * FROM Users ORDER BY id DESC'
+    @db.close
+	erb :showusers
+end
