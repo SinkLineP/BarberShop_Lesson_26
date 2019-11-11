@@ -68,7 +68,6 @@ post '/visit' do
 		values ( ?, ?, ?, ?, ?)', [@username, @phone, @datetime, @barber, @color]
 
 
-
 	@title = "Thank you!"
 	@message = "Hello, #{@username} your application has been sent to '#{@datetime}', Barber: #{@barber}, Color: #{@color}."
 
