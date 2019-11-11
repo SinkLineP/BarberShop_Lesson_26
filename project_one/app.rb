@@ -5,6 +5,19 @@ require 'sinatra/reloader'
 require 'sqlite3'
 
 
+def is_barber_exists? db, name
+	db.execute('select * from Barbers where name=?', [name]).length > 0
+end
+
+def seed_db db, barbers
+
+	barbers.each do |barber|
+		if !is_barber_exists? db, barber
+			db.execute 'insert into Barbers (name) values (?)', [barber]
+		end
+	end
+end
+
 def get_db
    @db =  SQLite3::Database.new 'data.db'
    @db.results_as_hash = true
@@ -24,7 +37,14 @@ configure do
 			"barber" TEXT,
 			"color" TEXT
 		)'
-	end
+	@db.execute 'CREATE TABLE IF NOT EXISTS
+		"Barbers"
+		(
+			"id" INTEGER PRIMARY KEY AUTOINCREMENT,
+			"name" TEXT
+		)'
+	seed_db @db, ['Misha', 'Karina', 'Vova']
+end
 
 get '/' do
 	erb "Hello! my github: <a href=\"https://github.com/SinkLineP/\">SinkLine_P</a>, and my channel: <a href=\"https://www.youtube.com/channel/UCV3V0MWW0d5xx6T4pxjZauQ?view_as=subscriber/\">My YouTube</a>."
@@ -69,7 +89,7 @@ post '/visit' do
 
 
 	@title = "Thank you!"
-	@message = "Hello, #{@username} your application has been sent to '#{@datetime}', Barber: #{@barber}, Color: #{@color}."
+	@message = "<p>Hello, #{@username} your application has been sent to '#{@datetime}', Barber: #{@barber}, Color: #{@color}.</p>"
 
 	f = File.open 'public/users.txt', 'a'
 	f.write "User: #{@username}, Phone: #{@phone}, Date and time: #{@datetime}, Barber: #{@barber}, Color: #{@color}.\n"
