@@ -24,6 +24,10 @@ def get_db
   return @db
 end
 
+before do
+	@db = get_db
+
+end
 
 configure do 
 	@db = get_db
