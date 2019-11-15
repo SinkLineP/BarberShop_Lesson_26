@@ -20,9 +20,12 @@
 
   <label>Выберите парикмахера:</label>
   <select name="barber" class="custom-select form-control">
-  	<option <%= @barber == 'Misha' ? 'selected' : '' %>>Misha</option>
-  	<option <%= @barber == 'Karina' ? 'selected' : '' %>>Karina</option>
-  	<option <%= @barber == 'Vova' ? 'selected' : '' %>>Vova</option>
+
+    <% @barbers.each do |item| %>
+      <option <%= @barber == item['name'] ? 'selected' : '' %>><%= item['name'] %></option>
+    <% end %>
+
+
   </select><br>
 
   <div class="form-group">

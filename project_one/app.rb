@@ -26,7 +26,7 @@ end
 
 before do
 	@db = get_db
-
+	@barbers = @db.execute 'select * from Barbers'
 end
 
 configure do 
@@ -47,7 +47,7 @@ configure do
 			"id" INTEGER PRIMARY KEY AUTOINCREMENT,
 			"name" TEXT
 		)'
-	seed_db @db, ['Misha', 'Karina', 'Vova']
+	seed_db @db, ['Misha', 'Karina', 'Vova', 'Himan']
 end
 
 get '/' do
