@@ -93,7 +93,7 @@ post '/visit' do
 
 
 	@title = "Thank you!"
-	@message = "<p>Hello, #{@username} your application has been sent to '#{@datetime}', Barber: #{@barber}, Color: #{@color}.</p>"
+	@message = "<h2>Вы записаны!</h2>"
 
 	f = File.open 'public/users.txt', 'a'
 	f.write "User: #{@username}, Phone: #{@phone}, Date and time: #{@datetime}, Barber: #{@barber}, Color: #{@color}.\n"
